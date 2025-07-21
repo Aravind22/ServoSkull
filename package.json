@@ -1,0 +1,27 @@
+{
+  "name": "servoskull",
+  "version": "1.0.0",
+  "description": "A Warhammer 40K themed reminder app with Tech-Priest aesthetics",
+  "main": "bin/index.js",
+  "bin": {
+    "servo": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "reminder",
+    "warhammer",
+    "40k",
+    "tech-priest",
+    "servoskull",
+    "cogitator"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.4",
+    "node-notifier": "^10.0.1"
+  }
+}
