@@ -11,8 +11,10 @@ const warning = chalk.yellowBright;
 const dim = chalk.gray;
 
 const commandDescriptions = {
-  add: "Add a new reminder with date and time",
+  add: "Add a new reminder (one-time or recurring) [--natural for AI-powered input]",
   list: "View all reminders with edit/delete options",
+  signup: "Register a new user account with email verification",
+  login: "Login with existing account using email and OTP",
   start: "Start background notification service",
   stop: "Stop the background notification service",
   reset: "Clear all data and reset the system",
@@ -51,12 +53,26 @@ async function main() {
   switch (command) {
     case "add":
       await reminders.typewriter(primary(">> Adding new reminder..."), 6);
-      await reminders.add();
+      // Check for --natural flag
+      const isNaturalMode = process.argv.includes("--natural");
+      if (isNaturalMode) {
+        await reminders.addNatural();
+      } else {
+        await reminders.add();
+      }
       break;
 
     case "list":
       // For list, do not show the top-level header or service status again
       await reminders.list();
+      break;
+
+    case "signup":
+      await reminders.signup();
+      break;
+
+    case "login":
+      await reminders.login();
       break;
 
     case "start":
@@ -83,6 +99,31 @@ async function main() {
     default:
       console.log(dim("Usage:"));
       console.log(chalk.white("  remindabot [command]"));
+      console.log();
+      console.log(dim("Examples:"));
+      console.log(
+        chalk.white(
+          "  remindabot add                    # Interactive reminder creation"
+        )
+      );
+      console.log(
+        chalk.white(
+          "  remindabot add --natural          # AI-powered natural language input"
+        )
+      );
+      console.log(
+        chalk.white("  remindabot list                   # View all reminders")
+      );
+      console.log(
+        chalk.white(
+          "  remindabot signup                 # Register new account"
+        )
+      );
+      console.log(
+        chalk.white(
+          "  remindabot login                  # Login with existing account"
+        )
+      );
       console.log();
 
       // Create a clean table
