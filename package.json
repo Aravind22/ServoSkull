@@ -1,21 +1,21 @@
 {
-  "name": "servoskull",
+  "name": "remindabot",
   "version": "1.0.0",
-  "description": "A Warhammer 40K themed reminder app with Tech-Priest aesthetics",
+  "description": "A professional reminder application with desktop notifications",
   "main": "bin/index.js",
   "bin": {
-    "servo": "./bin/index.js"
+    "remindabot": "./bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "reminder",
-    "warhammer",
-    "40k",
-    "tech-priest",
-    "servoskull",
-    "cogitator"
+    "notifications",
+    "desktop",
+    "cli",
+    "productivity",
+    "remindabot"
   ],
   "author": "",
   "license": "ISC",
